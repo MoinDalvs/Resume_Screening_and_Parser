@@ -1,0 +1,1 @@
+web: sh setup.sh && streamlit run upload_containter_resume_classification.py
