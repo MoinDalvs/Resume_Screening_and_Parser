@@ -8,7 +8,6 @@ import datetime
 
 import requests
 import docx2txt
-import pythoncom
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -20,7 +19,6 @@ from datetime import datetime
 from pdf2docx import Converter
 from nltk import word_tokenize
 import matplotlib.pyplot as plt
-import win32com.client as win32
 
 import matplotlib.pyplot  as plt
 import hydralit_components as hc
@@ -63,7 +61,6 @@ st.set_page_config(layout='wide',initial_sidebar_state='collapsed')
 menu_data = [
     {'icon': "fa fa-address-card", 'label':"Resume Parser"},
     {'icon': "far fa-file-word", 'label':"Resume Classification"},
-    {'icon': "far fa-copy", 'label':"Convert into .docx"},
     {'icon':"fa fa-check-square",'label':"Model Evaluation"},
     {'icon': "far fa-chart-bar", 'label':"Data Analysis"},#no tooltip message
 ]
@@ -396,102 +393,6 @@ if menu_id == 'Resume Classification':
             # if opt == "Skills":
             #     Skill_option = file_type["Skills"].unique().tolist()
             #     Skill = st.selectbox("Choose the candidate by selecting skills",Skill_option, 0)
-
-
-if menu_id == 'Convert into .docx':
-
-    def save_as_docx(path):
-                pythoncom.CoInitialize()
-                word = win32.gencache.EnsureDispatch('Word.Application')
-                doc = word.Documents.Open(path)
-                doc.Activate()
-                
-                new_file_abs = os.path.splitext(os.path.abspath(path))[0] + ".docx"
-                
-                word.ActiveDocument.SaveAs(new_file_abs, FileFormat=constants.wdFormatXMLDocument)
-                doc.Close(False)
-                pythoncom.CoUninitialize()
-
-    tab1, tab2, tab3 = st.tabs(["💾 Single File","📁 Multiple Files","🗃️ Multiple Folder"])
-
-    with tab1:
-
-        # following lines create boxes in which user can enter the absolute directory 
-        with st.form(key="form2"):
-            st.warning(body="Supported file Formats: '.doc' and'.pdf' (single file)")
-            path=st.text_input(label= "Enter the absolute file path below in the box")
-            st.markdown("Eg.  C:\\Users\\Admin\\Downloads\\file.doc or file.pdf")
-            submit = st.form_submit_button(label="Download")                           
-
-            if submit:
-                with hc.HyLoader('Please Wait',hc.Loaders.standard_loaders,index=5):
-                    time.sleep(5)
-                if path.endswith('.doc'):
-                    save_as_docx(path)
-                elif path.endswith('.pdf'):
-                    cv = Converter(path)
-                    basename = os.path.splitext(path)[0]
-                    cv.convert(basename+'.docx', start=0, end=None)
-                    cv.close()
-                else:
-                    st.warning(body="Please Enter a Valid File Path")
-                if path.endswith('.doc') or path.endswith('.pdf'):
-                    st.success('Done! Please check the same directory mentioned above', icon="✅")
-                
-
-
-    with tab2:
-
-        with st.form(key="form3"):
-            st.warning(body="Supported file Formats: '.doc' and'.pdf' (Multiple files)")
-            folder_path=st.text_input(label= "Enter the absolute folder path below in the box")
-            st.markdown("Eg.  C:\\Users\\Admin\\Downloads\\foldername")
-            submit = st.form_submit_button(label="Download")
-
-            if submit:
-                with hc.HyLoader('Please Wait!',hc.Loaders.standard_loaders,index=5):
-                    time.sleep(8)
-                for file in os.listdir(folder_path):
-                    file_path = os.path.join(folder_path, file)
-                    if file.endswith('.doc'):
-                        save_as_docx(file_path)
-                    elif file.endswith('.pdf'):
-                        cv = Converter(file_path)
-                        basename = os.path.splitext(file)[0]
-                        cv.convert(folder_path + '/' + basename+'.docx', start=0, end=None)
-                        cv.close()
-                    else:
-                        st.warning(body="One Invalid File Format Found")
-                    if file.endswith('.doc') or file.endswith('.pdf'):
-                        st.success('Done! Please check the same directory mentioned above', icon="✅")
-
-    with tab3:
-
-        with st.form(key="form4"):
-            st.warning(body="Supported file Formats: '.doc' and'.pdf' (Multiple folders)")
-            m_folder_path=st.text_input(label= "Enter the folder path with multiple folders below in the box")
-            st.markdown("Eg.  C:\\Users\\Admin\\Downloads\\foldername")
-            submit = st.form_submit_button(label="Download")
-
-            if submit:
-                with hc.HyLoader('Please Wait! This will take a while',hc.Loaders.standard_loaders,index=5):
-                    time.sleep(4)
-                for folder in os.listdir(m_folder_path):
-                    folder_path = os.path.join(m_folder_path, folder)
-                    for file in os.listdir(folder_path):
-                        file_path = os.path.join(folder_path, file)
-                        if file.endswith('.doc'):
-                            save_as_docx(file_path)
-                        elif file.endswith('.pdf'):
-                            cv = Converter(file_path)
-                            basename = os.path.splitext(file)[0]
-                            cv.convert(m_folder_path + '/' + folder + '/' + basename+'.docx', start=0, end=None)
-                            cv.close()
-                        else:
-                            st.warning(body="One Invalid File Format Found")
-                        if file.endswith('.doc') or file.endswith('.pdf'):
-                            st.success('Done! Please check the same directory mentioned above', icon="✅")
-
 
 if menu_id == 'Data Analysis':
 
