@@ -225,7 +225,7 @@ Github Status: \n\
 
 def extract_text_from_docx(docx_path):
 
-    if doc_file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+    if docx_path.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
 
         txt = docx2txt.process(docx_path)
         if txt:
