@@ -30,8 +30,6 @@ from win32com.client import constants
 from sklearn.model_selection import train_test_split
 from nltk.stem import WordNetLemmatizer, PorterStemmer
 from nltk.tokenize import RegexpTokenizer, word_tokenize
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.metrics import f1_score, confusion_matrix, accuracy_score, classification_report, precision_score, recall_score
 sys.coinit_flags = 0
 # load pre-trained model
 import en_core_web_sm
@@ -534,7 +532,7 @@ if menu_id == 'Resume Parser':
         spec.loader.exec_module(module)
         return module
 
-    cs = module_from_file("constants", "C:/Users/Moin Dalvi/constants.py")
+    cs = module_from_file("constants", "https://raw.githubusercontent.com/MoinDalvs/Resume_Parser_and_Classification/main/constants.py")
 
     
     # FOR INDIAN RESUME RUN THE BELOW FUNCTION TO EXTRACT MOBILE NUMBER
@@ -623,7 +621,7 @@ if menu_id == 'Resume Parser':
             tokens = [token.text for token in nlp_text if not token.is_stop]
             
             # reading the csv file
-            data = pd.read_csv("C:/Users/Moin Dalvi/skills.csv") 
+            data = pd.read_csv("https://raw.githubusercontent.com/MoinDalvs/Resume_Parser_and_Classification/main/Files/skills.csv") 
             
             # extract values
             skills = list(data.columns.values)
