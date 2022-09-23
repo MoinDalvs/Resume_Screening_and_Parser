@@ -522,13 +522,13 @@ if menu_id == 'Resume Parser':
     with hc.HyLoader('Please Wait!',hc.Loaders.standard_loaders,index=5):
         time.sleep(2)
 
-    def module_from_file(module_name, file_path):
-        spec = importlib.util.spec_from_file_location(module_name, file_path)
-        module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(module)
-        return module
+    # def module_from_file(module_name, file_path):
+    #     spec = importlib.util.spec_from_file_location(module_name, file_path)
+    #     module = importlib.util.module_from_spec(spec)
+    #     spec.loader.exec_module(module)
+    #     return module
 
-    cs = module_from_file("constants", "https://raw.githubusercontent.com/MoinDalvs/Resume_Parser_and_Classification/main/Files/constants.py")
+    # cs = module_from_file("constants", "https://raw.githubusercontent.com/MoinDalvs/Resume_Parser_and_Classification/main/Files/constants.py")
 
     
     # FOR INDIAN RESUME RUN THE BELOW FUNCTION TO EXTRACT MOBILE NUMBER
