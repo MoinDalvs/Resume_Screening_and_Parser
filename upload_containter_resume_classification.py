@@ -15,7 +15,6 @@ from glob import glob
 import streamlit as st
 from pickle import load
 from datetime import datetime
-from pdf2docx import Converter
 from nltk import word_tokenize
 import matplotlib.pyplot as plt
 
@@ -115,10 +114,9 @@ if menu_id == 'Home':
             st.markdown('<img align="right" alt="code"  height="200" width="200" src = "https://static.wixstatic.com/media/15e6c3_8f8cac375de143dc9d1d552090d975cf~mv2.gif">', unsafe_allow_html=True)
 
         with col2:
+
             st.markdown('<img align="right" alt="code"  height="500" width="300" src = "https://github.com/MoinDalvs/Resume_Parser_and_Classification/blob/main/Images/Scroll_down.gif?raw=true">', unsafe_allow_html=True)
             
-
-
     with tab2:
 
         col1, col2 = st.columns(2)
