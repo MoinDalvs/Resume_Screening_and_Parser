@@ -6,6 +6,7 @@ import nltk
 import spacy
 import datetime
 
+import requests
 import docx2txt
 import pythoncom
 import numpy as np
@@ -14,7 +15,6 @@ import seaborn as sns
 import importlib.util
 from glob import glob
 import streamlit as st
-# import constants as cs
 from pickle import load
 from datetime import datetime
 from pdf2docx import Converter
@@ -35,19 +35,26 @@ from nltk.tokenize import RegexpTokenizer, word_tokenize
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import f1_score, confusion_matrix, accuracy_score, classification_report, precision_score, recall_score
 sys.coinit_flags = 0
-nlp = spacy.load('en_core_web_sm')
+# load pre-trained model
+import en_core_web_sm
+nlp = en_core_web_sm.load()
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
 nltk.download('wordnet')
 nltk.download('stopwords')
+nltk.download('omw-1.4')
 stop=set(stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
 stemmer = PorterStemmer() 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-model=load(open('C:/Users/Moin Dalvi/Data_Science/Projects/Resume_Classification/model_rc.pkl','rb'))
+mfile = BytesIO(requests.get('https://github.com/MoinDalvs/Resume_Parser_and_Classification/blob/main/model_rc.pkl?raw=true').content)
+model = load(mfile)
 
-model1 = load(open('C:/Users/Moin Dalvi/Data_Science/Projects/Resume_Classification/model_id.pkl','rb'))
-
-# model2 = load(open('C:/Users/Moin Dalvi/Data_Science/Projects/Resume_Classification/model_evaluation.pkl', 'rb'))
+mfile1 = BytesIO(requests.get('https://github.com/MoinDalvs/Resume_Parser_and_Classification/blob/main/model_id.pkl?raw=true').content)
+model1 = load(mfile1)
 
 #make it look nice from the start
 st.set_page_config(layout='wide',initial_sidebar_state='collapsed')
