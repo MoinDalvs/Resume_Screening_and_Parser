@@ -386,7 +386,6 @@ if menu_id == 'Resume Classification':
             # file_type
             st.table(file_type.style.format({'Experience': '{:.1f}'}))
 
-
             # opt = st.radio("Choose candidate with prospective of :",["Skills","Experience(years)"])
             # if opt == "Skills":
             #     Skill_option = file_type["Skills"].unique().tolist()
@@ -532,7 +531,7 @@ if menu_id == 'Resume Parser':
         spec.loader.exec_module(module)
         return module
 
-    cs = module_from_file("constants", "https://raw.githubusercontent.com/MoinDalvs/Resume_Parser_and_Classification/main/constants.py")
+    cs = module_from_file("constants", "https://raw.githubusercontent.com/MoinDalvs/Resume_Parser_and_Classification/main/Files/constants.py")
 
     
     # FOR INDIAN RESUME RUN THE BELOW FUNCTION TO EXTRACT MOBILE NUMBER
