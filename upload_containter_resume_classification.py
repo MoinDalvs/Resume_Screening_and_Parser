@@ -23,9 +23,7 @@ import hydralit_components as hc
 from nltk.corpus import stopwords
 from spacy.matcher import Matcher
 from streamlit_tags import st_tags
-from win32com.client import constants
 
-from sklearn.model_selection import train_test_split
 from nltk.stem import WordNetLemmatizer, PorterStemmer
 from nltk.tokenize import RegexpTokenizer, word_tokenize
 sys.coinit_flags = 0
