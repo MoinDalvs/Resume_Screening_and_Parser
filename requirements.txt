@@ -14,7 +14,6 @@ pdf2docx
 pickle4
 Pillow
 PyPDF2
-pythoncom
 spacy
 streamlit
 streamlit_tags
