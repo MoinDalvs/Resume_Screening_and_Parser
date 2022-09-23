@@ -1,4 +1,7 @@
 # Resume_Parser [![Open in Streamlit](http://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://moindalvs-resume-upload-containter-resume-classification-ol4y9f.streamlitapp.com/) 👈 Click here!
+
+<img align="center" alt="code"  height="422" width="800" src = "https://user-images.githubusercontent.com/99672298/191944586-9b7fb5cd-56ea-4ce1-8187-065f3c278ea1.gif">
+
 ## **`Business objective-`** The document classification solution should significantly reduce the manual human effort in the HRM. It should achieve a higher level of accuracy and automation with minimal human intervention 
 ## **Sample Data Set Details:** Resumes and financial documents
 
