@@ -11,6 +11,7 @@ import docx2txt
 import numpy as np
 import pandas as pd
 import importlib.util
+from io import BytesIO
 from glob import glob
 import streamlit as st
 from pickle import load
