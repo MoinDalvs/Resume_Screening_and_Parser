@@ -284,7 +284,7 @@ def extract_skills(resume_text):
     tokens = [token.text for token in nlp_text if not token.is_stop]
             
     # reading the csv file
-    data = pd.read_csv("C:/Users/Moin Dalvi/skills.csv") 
+    data = pd.read_csv("https://raw.githubusercontent.com/MoinDalvs/Resume_Parser_and_Classification/main/Files/skills.csv") 
             
     # extract values
     skills = list(data.columns.values)
