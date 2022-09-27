@@ -355,7 +355,7 @@ if menu_id == 'Resume Classification':
                 st.image("https://s3.amazonaws.com/questoracle-staging/wordpress/uploads/2019/07/25164143/PeopleSoft-Now.jpg",width=480)
 
     with tab2:
-        st.write('Folder Containing Multiple .docx Files')
+        st.write('Upload Folder Containing Multiple .docx Files')
 
         file_type=pd.DataFrame(columns=['Uploaded File', 'Experience', 'Skills', 'Predicted Profile'], dtype=object)
         filename = []
