@@ -484,11 +484,11 @@ if menu_id == 'Data Analysis':
 
 if menu_id == 'Model Evaluation':
 
-    tab1, tab2 = st.tabs(["➗ Train Test Split", "♻️ Model Evaluation"])
+    tab1, tab2, tab3= st.tabs(["➗ Train Test Split", '💯 K-Fold Cross Validation', "♻️ Model Evaluation"])
 
     with tab1:
 
-        col1, col2, col3 = st.columns(3)
+        col1, col2, col3, col4 = st.columns(4)
 
         with col1:
 
@@ -501,8 +501,24 @@ if menu_id == 'Model Evaluation':
         with col3:
 
             st.image('https://github.com/MoinDalvs/Resume_Parser_and_Classification/blob/main/GIthub%20Requirements/traintestsplit1_3.png?raw=true')
+        
+        with col4:
 
-    with tab2:
+            st.image('https://github.com/MoinDalvs/Resume_Parser_and_Classification/blob/main/GIthub%20Requirements/train_test_split1_4.png?raw=true')
+
+    with tab1:
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+
+            st.image('https://github.com/MoinDalvs/Resume_Parser_and_Classification/blob/main/GIthub%20Requirements/cross_validation1.png?raw=true')
+
+        with col2:
+
+            st.image('https://github.com/MoinDalvs/Resume_Parser_and_Classification/blob/main/GIthub%20Requirements/cross_validation1_2.png?raw=true')
+
+    with tab3:
 
         col1, col2, col3 = st.columns(3)
 
@@ -521,15 +537,6 @@ if menu_id == 'Resume Parser':
 
     with hc.HyLoader('Please Wait!',hc.Loaders.standard_loaders,index=5):
         time.sleep(2)
-
-    # def module_from_file(module_name, file_path):
-    #     spec = importlib.util.spec_from_file_location(module_name, file_path)
-    #     module = importlib.util.module_from_spec(spec)
-    #     spec.loader.exec_module(module)
-    #     return module
-
-    # cs = module_from_file("constants", "https://raw.githubusercontent.com/MoinDalvs/Resume_Parser_and_Classification/main/Files/constants.py")
-
     
     # FOR INDIAN RESUME RUN THE BELOW FUNCTION TO EXTRACT MOBILE NUMBER
     def extract_mobile_number(text):
