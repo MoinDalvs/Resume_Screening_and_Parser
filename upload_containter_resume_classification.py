@@ -335,14 +335,14 @@ if menu_id == 'Resume Classification':
 
     with tab1:
 
-        upload_file = st.file_uploader('', type= ['docx'], accept_multiple_files=False)   
+        upload_file1 = st.file_uploader('', type= ['docx'], accept_multiple_files=False)   
         st.write('*Note: For different Resumes Results Reupload')  
-        if upload_file is not None:
-            displayed=extract_text_from_docx(upload_file)
-            cleaned=preprocess(display(upload_file))
+        if upload_file1 is not None:
+            displayed=extract_text_from_docx(upload_file1)
+            cleaned=preprocess(display(upload_file1))
             predicted= model.predict(model1.transform([cleaned]))
 
-            st.header("The "+ upload_file.name +" is Applied for"+ " " + predicted + " " + "Profile")
+            st.header("The "+ upload_file1.name +" is Applied for"+ " " + predicted + " " + "Profile")
             expander = st.expander("See Resume")
             expander.write(displayed)
             if predicted == 'Workday':
@@ -363,9 +363,9 @@ if menu_id == 'Resume Classification':
         experience = []
         skills = []
 
-        upload_file = st.file_uploader('', type= ['docx'], accept_multiple_files=True)
+        upload_file2 = st.file_uploader('', type= ['docx'], accept_multiple_files=True)
         
-        for doc_file in upload_file:
+        for doc_file in upload_file2:
             if doc_file is not None:
                 filename.append(doc_file.name)   
                 cleaned=preprocess(extract_text_from_docx(doc_file))
@@ -851,15 +851,15 @@ if menu_id == 'Resume Parser':
     st.title("RESUME PARSER")
         
     st.subheader('Upload Resume (Single File Accepted) 👇')
-    upload_file = st.file_uploader('', type= ['docx'], accept_multiple_files=False)
+    upload_file3 = st.file_uploader('', type= ['docx'], accept_multiple_files=False)
 
     st.write('*Note: For different Resumes Results Reupload')    
     
-    if upload_file is not None:
-        displayed=display(upload_file)
+    if upload_file3 is not None:
+        displayed=display(upload_file3)
         
         i=0
-        text = extract_text_from_docx(upload_file)
+        text = extract_text_from_docx(upload_file3)
         tokText = tokenText(text)
         df.loc[i,'Name']=extract_name(tokText)
         df.loc[i,'Mobile No.']=extract_mobile_number(text)
