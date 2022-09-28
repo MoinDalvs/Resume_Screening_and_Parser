@@ -506,7 +506,7 @@ if menu_id == 'Model Evaluation':
 
             st.image('https://github.com/MoinDalvs/Resume_Parser_and_Classification/blob/main/GIthub%20Requirements/train_test_split1_4.png?raw=true')
 
-    with tab1:
+    with tab2:
 
         col1, col2 = st.columns(2)
 
