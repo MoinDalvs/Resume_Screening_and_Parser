@@ -1,4 +1,5 @@
-# from nltk.corpus import stopwords
+from nltk.corpus import stopwords
+nltk.download('stopwords')
 
 # Dalvi Moin
 NAME_PATTERN      = [{'POS': 'PROPN'}, {'POS': 'PROPN'}]
@@ -18,7 +19,7 @@ MONTHS_LONG       = r'(january)|(february)|(march)|(april)|(may)|(june)|(july)|(
 MONTH             = r'(' + MONTHS_SHORT + r'|' + MONTHS_LONG + r')'
 YEAR              = r'(((20|19)(\d{2})))'
 
-# STOPWORDS         = set(stopwords.words('english'))
+STOPWORDS         = set(stopwords.words('english'))
 
 RESUME_SECTIONS_PROFESSIONAL = [
                     'experience',

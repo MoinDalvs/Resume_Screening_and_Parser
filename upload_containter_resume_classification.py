@@ -12,6 +12,7 @@ import numpy as np
 import pandas as pd
 import importlib.util
 from io import BytesIO
+nltk.download('stopwords')
 import constants as cs
 from glob import glob
 import streamlit as st
@@ -37,7 +38,6 @@ nltk.download('averaged_perceptron_tagger')
 nltk.download('maxent_ne_chunker')
 nltk.download('words')
 nltk.download('wordnet')
-nltk.download('stopwords')
 nltk.download('omw-1.4')
 stop=set(stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
