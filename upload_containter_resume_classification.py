@@ -12,7 +12,6 @@ import numpy as np
 import pandas as pd
 import importlib.util
 from io import BytesIO
-nltk.download('stopwords')
 import constants as cs
 from glob import glob
 import streamlit as st
@@ -33,6 +32,7 @@ sys.coinit_flags = 0
 # load pre-trained model
 import en_core_web_sm
 nlp = en_core_web_sm.load()
+nltk.download('stopwords')
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('maxent_ne_chunker')
