@@ -1,5 +1,7 @@
-from nltk.corpus import stopwords
+import nltk
 nltk.download('stopwords')
+from nltk.corpus import stopwords
+
 
 # Dalvi Moin
 NAME_PATTERN      = [{'POS': 'PROPN'}, {'POS': 'PROPN'}]
