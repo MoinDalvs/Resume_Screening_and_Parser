@@ -4,6 +4,7 @@ import sys
 import time
 import nltk
 import spacy
+import sklearn
 import datetime
 
 import requests
@@ -26,6 +27,7 @@ from nltk.corpus import stopwords
 from spacy.matcher import Matcher
 from streamlit_tags import st_tags
 
+from sklearn.ensemble import RandomForestClassifier
 from nltk.stem import WordNetLemmatizer, PorterStemmer
 from nltk.tokenize import RegexpTokenizer, word_tokenize
 sys.coinit_flags = 0
