@@ -18,4 +18,3 @@ PyPDF2
 spacy
 streamlit
 streamlit_tags
-sklearn
